@@ -1,0 +1,28 @@
+.puzzle-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Example for 3x3 puzzle */
+  width: 90vw;
+  max-width: 400px;
+  height: 90vw;
+  max-height: 400px;
+  margin: 20px auto;
+  border: 3px solid black;
+  box-sizing: border-box;
+}
+
+.puzzle-piece {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border: 1px solid #ddd;
+  aspect-ratio: 1 / 1;
+}
+
+/* Optional: Adjust grid for smaller screen sizes (e.g., 2x2 puzzle on small screens) */
+@media (max-width: 480px) {
+  .puzzle-container {
+    grid-template-columns: repeat(3, 1fr); /* Still 3x3, but smaller cells */
+    width: 95vw;
+    height: 95vw;
+  }
+}

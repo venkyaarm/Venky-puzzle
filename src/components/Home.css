@@ -1,0 +1,133 @@
+/* Reset */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main Container */
+.home-wrapper {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom right, #fdfcfb, #e2d1c3);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Card Style */
+.home-card {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  animation: floatUp 1s ease-out;
+}
+
+/* Title */
+.home-title {
+  font-size: 40px;
+  margin-bottom: 30px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  animation: bounceGlow 2s infinite;
+  text-align: center;
+}
+
+/* Highlighted 'venky' */
+.venky {
+  background: linear-gradient(to right, #ec4899, #f59e0b);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+  animation: pulseColor 3s infinite ease-in-out;
+}
+
+/* Buttons */
+.play-btn,
+.create-btn {
+  display: block;
+  width: 80%;
+  margin: 15px auto;
+  padding: 15px;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.play-btn {
+  background-color: #2563eb;
+}
+
+.create-btn {
+  background-color: #10b981;
+}
+
+.play-btn:hover,
+.create-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes floatUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes bounceGlow {
+  0%, 100% {
+    transform: scale(1);
+    text-shadow: 0 0 10px #f472b6, 0 0 20px #f472b6;
+  }
+  50% {
+    transform: scale(1.05);
+    text-shadow: 0 0 20px #fbbf24, 0 0 30px #f472b6;
+  }
+}
+
+@keyframes pulseColor {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ✅ Mobile Responsive */
+@media (max-width: 600px) {
+  .home-title {
+    font-size: 28px;
+  }
+
+  .home-card {
+    padding: 30px 20px;
+  }
+
+  .play-btn,
+  .create-btn {
+    font-size: 16px;
+    padding: 12px;
+  }
+}
