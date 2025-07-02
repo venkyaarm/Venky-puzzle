@@ -179,8 +179,7 @@ const CreatePuzzle = () => {
             <div className="preview">
               <PuzzleBoard image={image} gridSize={gridSize} />
             </div>
-            <button className="export-btn" onClick={handleExport}>📤 Export Puzzle</button>
-
+            <button className="export-btn" onClick={handleExport}>ðŸ“¤ Export Puzzle </button>
           </>
         )}
       </div>
