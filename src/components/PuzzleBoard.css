@@ -4,7 +4,7 @@
   max-width: 400px;
   height: 90vw;
   max-height: 400px;
-  margin: 20px auto;
+  margin: 20px auto; /* This already centers it */
   border: 3px solid black;
   box-sizing: border-box;
   touch-action: none;
@@ -30,5 +30,6 @@
   .puzzle-container {
     width: 95vw;
     height: 95vw;
+    margin: 20px auto; /* Add this line to ensure centering on small screens */
   }
 }

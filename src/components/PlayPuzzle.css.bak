@@ -1,0 +1,144 @@
+/* Base Layout */
+.play-container {
+  min-height: 100vh;
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #fdfcfb, #e2d1c3);
+  animation: animateBg 20s ease infinite;
+  padding: 30px 20px;
+  box-sizing: border-box;
+}
+
+/* Title Styling */
+.play-title {
+  font-size: 34px;
+  font-weight: bold;
+  background: linear-gradient(to right, #0077ff, #00e0ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glowTitle 2.5s ease-in-out infinite alternate;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Control Area */
+.play-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.play-controls select,
+.play-controls button,
+.play-controls input[type="checkbox"] {
+  font-size: 16px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+}
+
+/* Puzzle Preview Image */
+.preview-image {
+  width: 300px;
+  height: 300px;
+  max-width: 90vw;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  margin: 20px 0;
+  animation: zoomFade 1s ease;
+}
+
+/* Win Message Overlay */
+.win-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0,0,0.9);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  animation: fadeIn 1s ease;
+}
+
+/* Win Image */
+.win-image {
+  max-width: 90vw;
+  max-height: 60vh;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.3);
+}
+
+/* Play Again Button */
+.play-again {
+  padding: 12px 24px;
+  font-size: 18px;
+  background: #06d6a0;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.play-again:hover {
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes glowTitle {
+  from { text-shadow: 0 0 8px #00e0ff; }
+  to   { text-shadow: 0 0 24px #00e0ff; }
+}
+
+@keyframes animateBg {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes zoomFade {
+  0% { opacity: 0; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: scale(0.85); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* ✅ Mobile Optimization */
+@media (max-width: 600px) {
+  .play-title {
+    font-size: 26px;
+  }
+
+  .play-controls {
+    gap: 10px;
+  }
+
+  .play-again {
+    width: 100%;
+  }
+
+  .preview-image {
+    width: 90vw;
+    height: 90vw;
+  }
+
+  .win-image {
+    width: 90vw;
+    height: auto;
+  }
+}
