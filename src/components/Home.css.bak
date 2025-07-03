@@ -189,20 +189,3 @@ html, body, #root {
   z-index: 1;
 }
 
-.home-card {
-  /* existing styles... */
-  animation: floatGlow 4s ease-in-out infinite alternate;
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
-}
-
-/* Floating glow animation */
-@keyframes floatGlow {
-  0% {
-    transform: translateY(0px);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-  }
-  100% {
-    transform: translateY(-5px);
-    box-shadow: 0 0 40px rgba(255, 255, 255, 0.8);
-  }
-}

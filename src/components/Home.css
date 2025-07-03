@@ -1,11 +1,11 @@
-/* Reset */
+/* ========== Base Reset ========== */
 html, body, #root {
   height: 100%;
   margin: 0;
   padding: 0;
 }
 
-/* ✅ Main Wrapper */
+/* ========== Wrapper ========== */
 .home-wrapper {
   position: relative;
   height: 100vh;
@@ -16,37 +16,56 @@ html, body, #root {
   align-items: center;
 }
 
-/* ✅ Background Video */
+/* 🎥 Background Video */
 .bg-video {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100vh;
-  width: 100vw;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  z-index: -1;
-
-  /* 🔥 Make it vibrant */
-  opacity: 1; /* full brightness */
+  z-index: -2;
+  opacity: 1;
   filter: brightness(1.2) contrast(1.2) saturate(1.5);
 }
 
-
-/* ✅ Card Styling */
+/* ========== Card Styling ========== */
 .home-card {
-  background-color: rgba(255, 255, 255, 0.85);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.9);
   padding: 40px 30px;
   border-radius: 20px;
-  text-align: center;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
-
-  /* 🌟 Apply both floating and slight rotation */
+  text-align: center;
   animation: floatGlowRotate 5s ease-in-out infinite alternate;
-  transform-style: preserve-3d;
+  max-width: 90%;
+  width: 400px;
 }
 
+/* 🎥 Card Inner Background Video */
+.card-bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.5;
+  filter: brightness(1.4) saturate(1.3);
+  pointer-events: none;
+  border-radius: 20px;
+}
 
-/* ✅ Title */
+/* Make content appear above inner video */
+.home-card > *:not(video) {
+  position: relative;
+  z-index: 1;
+}
+
+/* ========== Title ========== */
 .home-title {
   font-size: 36px;
   font-weight: bold;
@@ -60,7 +79,7 @@ html, body, #root {
   -webkit-text-fill-color: transparent;
 }
 
-/* ✅ Buttons */
+/* ========== Buttons ========== */
 .play-btn, .create-btn {
   margin: 10px auto;
   padding: 14px 20px;
@@ -70,6 +89,7 @@ html, body, #root {
   border-radius: 8px;
   color: white;
   cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
 .play-btn {
@@ -85,7 +105,7 @@ html, body, #root {
   transform: scale(1.05);
 }
 
-/* ✅ Title animation */
+/* ========== Animations ========== */
 @keyframes bounceGlow {
   0%, 100% {
     text-shadow: 0 0 10px #f472b6, 0 0 20px #f472b6;
@@ -94,6 +114,7 @@ html, body, #root {
     text-shadow: 0 0 20px #fbbf24, 0 0 30px #f472b6;
   }
 }
+
 @keyframes floatGlowRotate {
   0% {
     transform: translateY(0px) rotateX(0deg) rotateY(0deg);
@@ -108,84 +129,28 @@ html, body, #root {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   }
 }
-.home-card {
-  position: relative;
-  overflow: hidden;
-  background-color: rgba(255, 255, 255, 0.85);
-  padding: 40px 30px;
-  border-radius: 20px;
-  text-align: center;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
-  animation: floatGlowRotate 5s ease-in-out infinite alternate;
-}
 
-/* 🎥 Card background video */
-.card-bg-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-  opacity: 0.25; /* Adjust brightness */
-  filter: blur(3px) saturate(1.3);
-  pointer-events: none;
-}
+/* ========== 📱 Responsive Styles for Mobile ========== */
+@media (max-width: 480px) {
+  .home-card {
+    padding: 25px 20px;
+    border-radius: 16px;
+    max-width: 95%;
+    width: 100%;
+  }
 
-/* Make sure content appears above video */
-.home-card > *:not(video) {
-  position: relative;
-  z-index: 1;
-}
-.home-wrapper {
-  position: relative;
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-}
+  .home-title {
+    font-size: 28px;
+  }
 
-.bg-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -2;
+  .play-btn, .create-btn {
+    font-size: 14px;
+    padding: 12px 16px;
+    width: 90%;
+  }
+
+  .card-bg-video {
+    filter: brightness(1.6) saturate(1.4);
+    opacity: 0.6;
+  }
 }
-
-/* 🧩 Card */
-.home-card {
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 40px 30px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  animation: floatGlow 5s infinite ease-in-out alternate;
-}
-
-/* 🎥 Card video */
-.card-bg-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-  opacity: 0.5; /* ⬅️ Increase brightness */
-  filter: brightness(1.4) saturate(1.3); /* ⬅️ Enhance light and colors */
-  pointer-events: none;
-  border-radius: 20px; /* match card corners */
-}
-
-
-.home-card > *:not(video) {
-  position: relative;
-  z-index: 1;
-}
-
