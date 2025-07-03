@@ -7,7 +7,20 @@ const Home = () => {
 
   return (
     <div className="home-wrapper">
+      {/* Main background video (optional, if you already have) */}
+      <video className="bg-video" autoPlay loop muted playsInline>
+        <source src="/background.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
       <div className="home-card">
+        {/* Card background video */}
+        <video className="card-bg-video" autoPlay loop muted playsInline>
+          <source src="/card-bg.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        {/* Content */}
         <h1 className="home-title">
           🧩 <span className="venky">@venky</span> puzzle
         </h1>
