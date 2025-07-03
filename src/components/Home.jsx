@@ -1,36 +1,24 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import './Home.css';
+import bgVideo from '../assets/bg.mp4'; // Update path as needed
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const navigate = useNavigate();
 
   return (
     <div className="home-wrapper">
-      {/* Main background video (optional, if you already have) */}
-      <video className="bg-video" autoPlay loop muted playsInline>
-        <source src="/background.mp4" type="video/mp4" />
+      <video className="bg-video" autoPlay muted loop>
+        <source src={bgVideo} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
-      <div className="home-card">
-        {/* Card background video */}
-        <video className="card-bg-video" autoPlay loop muted playsInline>
-          <source src="/card-bg.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+      <h1 className="home-title">
+        🧩 <span className="venky">@venky</span> puzzle
+      </h1>
 
-        {/* Content */}
-        <h1 className="home-title">
-          🧩 <span className="venky">@venky</span> puzzle
-        </h1>
-        <button className="play-btn" onClick={() => navigate('/play')}>
-          ▶️ Play Puzzle
-        </button>
-        <button className="create-btn" onClick={() => navigate('/create')}>
-          ✏️ Create Puzzle
-        </button>
-      </div>
+      <button className="play-btn" onClick={() => navigate('/play')}>▶️ Play Puzzle</button>
+      <button className="create-btn" onClick={() => navigate('/create')}>✏️ Create Puzzle</button>
     </div>
   );
 };
